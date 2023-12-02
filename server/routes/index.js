@@ -153,7 +153,6 @@ let User = userModel.User;
         res.render('contact', { title: 'Contact Us?', displayName: req.user ? req.user.displayName:'' });  //Render The Contact Page
     });
 
-
  
 
 

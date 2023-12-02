@@ -21,7 +21,8 @@ router.get('/', async (req,res,next)=>{ //< Mark function as async
        const ItemList = await Item.find(); //< Use of await keyword
        res.render('items/list', {
           title: 'Active Tournaments', //Give Route To Read The Data From The Database
-          ItemList: ItemList
+          ItemList: ItemList,
+          displayName: req.user ? req.user.displayName:''
        });
     }catch(err){  // If Not The Raise An Error
        console.error(err);
@@ -36,7 +37,8 @@ router.get('/add', requireAuth, async (req,res,next)=>{
     try{
         res.render('items/add', // Give Route To Add Data Then redirect To Main Page 
         {
-            title:'Add Items'
+            title:'Add Items',
+            displayName: req.user ? req.user.displayName:''
         })
     }
     catch(err) // If Not The Raise An Error
@@ -81,6 +83,7 @@ router.get('/edit/:id', requireAuth,   async (req,res,next)=>{   // Give Route T
     {
         title:'Edit Item',
         Item:itemToEdit,
+        displayName: req.user ? req.user.displayName:''
         
     })
 }
