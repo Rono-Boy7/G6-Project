@@ -23,33 +23,7 @@ let User = userModel.User;
     }
   })
   
-  router.post('/login',function(req,res,next){
-    passport.authenticate('local',function(err,User,info){
-        // server error
-        if(err)
-        {
-          return next(err);
-        }
-        // login error
-        if(!User)
-        {
-          req.flash('loginMessage',
-          'AuthenticationError');
-          return res.redirect('/login')
-        }
-        req.login(User,(err)=>{
-          if(err)
-          {
-            return next(err)
-          }
-          return res.redirect('/itemlist');
-        })
-    })(req,res,next)
-  })
-  
- 
-   /* post router for  page. */
-
+   /* post router for  page. *
  
    router.post('/login',function(req,res,next){
        passport.authenticate('local',function(err,User,info){
