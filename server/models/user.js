@@ -1,7 +1,8 @@
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');
-
+//Creates a structure for the data for registering 
 let User = mongoose.Schema({
+  //username data and attributes
   username:
   {
     type:String,
@@ -9,7 +10,7 @@ let User = mongoose.Schema({
     trim:true,
     required: 'Username is required'
   },
-
+  //password data and attributes
   // password:
   // {
   //   type:String,
@@ -17,7 +18,7 @@ let User = mongoose.Schema({
   //   trim:true,
   //   required: 'Password is required'
   // },
-
+  //display name data and attributes
   displayName:
   {
     type:String,
@@ -25,7 +26,7 @@ let User = mongoose.Schema({
     trim:true,
     required: 'DisplayName is required'
   },
-  
+  //email data and attributes
   email:
   {
     type:String,
@@ -33,13 +34,13 @@ let User = mongoose.Schema({
     trim:true,
     required: 'Email is required'
   },
-
+  //date user was registered
   created:
   {
     type:Date,
     default:Date.now
   },
-
+  //date user credentials was updated
   update:
   {
     type:Date,
